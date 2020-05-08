@@ -60,4 +60,9 @@ public class enemy : MonoBehaviour
             gameManager.manager.enemyCount--;
         }
     }
+    public void moveLeft(enemy e)
+    {
+        Vector3 tPos = e.transform.position + new Vector3(-10, 0, 0);
+        e.transform.position = Vector3.MoveTowards(e.transform.position, tPos, moveSpd);
+    }
 }

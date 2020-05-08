@@ -18,16 +18,12 @@ public class grunt : enemy
     // Update is called once per frame
     void Update()
     {
-        moveLeft();
+        moveLeft(enemyObj);
         shoot();
         chkPos(enemyObj);
         playerObj = GameObject.FindGameObjectWithTag("Player").GetComponent<player>();
     }
-    void moveLeft()
-    {
-        Vector3 tPos = enemyObj.transform.position + new Vector3(-10, 0, 0);
-        enemyObj.transform.position = Vector3.MoveTowards(enemyObj.transform.position, tPos, moveSpd);
-    }
+
     public void OnTriggerStay(Collider c)
     {
         triggerProc(enemyObj, c);

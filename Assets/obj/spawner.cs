@@ -31,6 +31,9 @@ public class spawner : MonoBehaviour
                 StartCoroutine(spawnSpinner(30, 1));
                 gameManager.manager.enemyCount = 30;
                 break;
+            case 4:
+                //todo spawn gunner
+                break;
         }
                 
     }
