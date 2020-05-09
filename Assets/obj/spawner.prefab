@@ -49,3 +49,9 @@ MonoBehaviour:
     type: 3}
   spinnerObj: {fileID: 4033746395891112651, guid: 3cab1d0e85933ce4f80b87739ff64683,
     type: 3}
+  gunnerObj: {fileID: 5344685061854767552, guid: 82ce4ccd17026c44c8d6d29dd3b41951,
+    type: 3}
+  spreaderObj: {fileID: 2126129211676842303, guid: 67c198306e42c64469c964f9998e2986,
+    type: 3}
+  txtToPlayer: {fileID: 0}
+  txtECount: {fileID: 0}

@@ -27,7 +27,7 @@ public class wpnLaser : weapon
     {
         bltLaser newBl = Instantiate(bltLaserObj, weaponObj.transform);
         newBl.transform.localPosition = new Vector3(0, 0, 101);
-        Destroy(newBl.gameObject, 2.8f);
+        Destroy(newBl.gameObject, 2.7f);
         //yield return new WaitForSeconds(1);
     }
 }

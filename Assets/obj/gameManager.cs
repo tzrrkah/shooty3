@@ -5,7 +5,7 @@ using UnityEngine;
 public class gameManager : MonoBehaviour
 {
     public static gameManager manager;
-    public int score,level,enemyCount;
+    public int score,level,enemyCount,maxEnemies;
     void Awake()
     {
         if (manager == null)
@@ -22,6 +22,7 @@ public class gameManager : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        maxEnemies = 50;
         level = 1;
     }
 

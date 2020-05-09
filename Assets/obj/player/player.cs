@@ -32,6 +32,14 @@ public class player : MonoBehaviour
                 if (r2.collider.name == "floor")
                 {
                     Vector3 tPos = r.origin + (r.direction * r2.distance);
+                    if (tPos.z > 25)
+                    {
+                        tPos.z = 25;
+                    }
+                    if (tPos.z < -25)
+                    {
+                        tPos.z = -25;
+                    }
                     p.transform.position = Vector3.Lerp(p.transform.position, tPos + offset, speed);
                 }
             }

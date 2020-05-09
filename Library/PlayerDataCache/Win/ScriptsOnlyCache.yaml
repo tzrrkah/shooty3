@@ -8,12 +8,15 @@ ScriptsOnlyBuild:
     - eLaser
     - eLaserSml
     - ebullet
+    - enemyCount
     - gameManager
     - grunt
+    - gunner
     - healthBar
     - player
     - spawner
     - spinner
+    - spreader
     - txtScore
     - wpnLaser
     Unity.Rider.Editor.dll:
@@ -76,31 +79,35 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12026}
     - Class: 114
-      Script: {instanceID: 12226}
+      Script: {instanceID: 12198}
     - Class: 114
-      Script: {instanceID: 12298}
+      Script: {instanceID: 12228}
     - Class: 114
-      Script: {instanceID: 12388}
+      Script: {instanceID: 12300}
     - Class: 114
-      Script: {instanceID: 12562}
+      Script: {instanceID: 12390}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12564}
     - Class: 114
-      Script: {instanceID: 12662}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12664}
     - Class: 114
-      Script: {instanceID: 12740}
+      Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12942}
+      Script: {instanceID: 12742}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12944}
     - Class: 114
-      Script: {instanceID: 12996}
+      Script: {instanceID: 12968}
     - Class: 114
-      Script: {instanceID: 13002}
+      Script: {instanceID: 12998}
     - Class: 114
-      Script: {instanceID: 13006}
+      Script: {instanceID: 13004}
+    - Class: 114
+      Script: {instanceID: 13008}
+    - Class: 114
+      Script: {instanceID: 21996}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -151,15 +158,19 @@ ScriptsOnlyBuild:
     - Class: 114
       Script: {instanceID: 12120}
     - Class: 114
-      Script: {instanceID: 12606}
+      Script: {instanceID: 12608}
     - Class: 114
-      Script: {instanceID: 12684}
+      Script: {instanceID: 12686}
     - Class: 114
-      Script: {instanceID: 12774}
+      Script: {instanceID: 12776}
     - Class: 114
-      Script: {instanceID: 12934}
+      Script: {instanceID: 12936}
     - Class: 114
-      Script: {instanceID: 12966}
+      Script: {instanceID: 12968}
+    - Class: 114
+      Script: {instanceID: 12998}
+    - Class: 114
+      Script: {instanceID: 25704}
     - Class: 115
       Script: {instanceID: 0}
     - Class: 128
@@ -443,6 +454,12 @@ ScriptsOnlyBuild:
     className: RawImage
   - hash:
       serializedVersion: 2
+      Hash: a591b39950d452e7f5c41118e88c3c5e
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: gunner
+  - hash:
+      serializedVersion: 2
       Hash: 5ad4aa237d47ac2bab17bacb672edf7a
     assemblyName: UnityEngine.UI.dll
     namespaceName: UnityEngine.UI
@@ -455,7 +472,7 @@ ScriptsOnlyBuild:
     className: ebullet
   - hash:
       serializedVersion: 2
-      Hash: 8c3f6b1056ce7f9db9d3d9bf82a53a03
+      Hash: 4bacb4610062efeebe3d027a80e41924
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: spawner
@@ -557,7 +574,7 @@ ScriptsOnlyBuild:
     className: healthBar
   - hash:
       serializedVersion: 2
-      Hash: c6b2512ea9fe8a703e326a2f6ce03b74
+      Hash: 1daced9dfc3952affeeabac99f8af122
     assemblyName: Assembly-CSharp.dll
     namespaceName: 
     className: gameManager
@@ -705,6 +722,18 @@ ScriptsOnlyBuild:
     assemblyName: Unity.Timeline.dll
     namespaceName: UnityEngine.Timeline
     className: PlayableTrack
+  - hash:
+      serializedVersion: 2
+      Hash: 522399ae88371eb59973b3307d1ce41d
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: spreader
+  - hash:
+      serializedVersion: 2
+      Hash: dd90e3014d56b6d11f3d8bf293df17eb
+    assemblyName: Assembly-CSharp.dll
+    namespaceName: 
+    className: enemyCount
   platform: 5
   scenePathNames:
   - Assets/Scenes/shop.unity

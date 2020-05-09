@@ -55,14 +55,15 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\obj\enemy\brute.cs" />
-     <Compile Include="Assets\obj\enemy\eLaser.cs" />
-     <Compile Include="Assets\obj\enemy\eLaserSml.cs" />
-     <Compile Include="Assets\obj\enemy\ebullet.cs" />
      <Compile Include="Assets\obj\enemy\enemy.cs" />
-     <Compile Include="Assets\obj\enemy\grunt.cs" />
-     <Compile Include="Assets\obj\enemy\gunner.cs" />
-     <Compile Include="Assets\obj\enemy\spinner.cs" />
+     <Compile Include="Assets\obj\enemy\mobs\brute.cs" />
+     <Compile Include="Assets\obj\enemy\mobs\grunt.cs" />
+     <Compile Include="Assets\obj\enemy\mobs\gunner.cs" />
+     <Compile Include="Assets\obj\enemy\mobs\spinner.cs" />
+     <Compile Include="Assets\obj\enemy\mobs\spreader.cs" />
+     <Compile Include="Assets\obj\enemy\weapons\eLaser.cs" />
+     <Compile Include="Assets\obj\enemy\weapons\eLaserSml.cs" />
+     <Compile Include="Assets\obj\enemy\weapons\ebullet.cs" />
      <Compile Include="Assets\obj\gameManager.cs" />
      <Compile Include="Assets\obj\player\player.cs" />
      <Compile Include="Assets\obj\player\weapon\bltLaser.cs" />
@@ -72,6 +73,7 @@
      <Compile Include="Assets\obj\spawner.cs" />
      <Compile Include="Assets\ui\btnExit.cs" />
      <Compile Include="Assets\ui\btnGo.cs" />
+     <Compile Include="Assets\ui\enemyCount.cs" />
      <Compile Include="Assets\ui\healthBar.cs" />
      <Compile Include="Assets\ui\txtScore.cs" />
  <Reference Include="UnityEngine">
