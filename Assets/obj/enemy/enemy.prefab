@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   enemyObj: {fileID: 1280846602573534335}
-  ebulletObj: {fileID: 0}
+  bulletObj: {fileID: 0}
   playerObj: {fileID: 0}
   health: 0
   value: 0

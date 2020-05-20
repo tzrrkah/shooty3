@@ -228,5 +228,5 @@ MonoBehaviour:
   moveSpd: 0
   lastShoot: 0
   shootCd: 0
-  eMat: {fileID: 0}
-  dmgMat: {fileID: 0}
+  eMat: {fileID: 2100000, guid: 9e2dc746fca8d17449dcbf59e74cf375, type: 2}
+  dmgMat: {fileID: 2100000, guid: 9b74a36d285a6804b89484dea0021d61, type: 2}

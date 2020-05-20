@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.PlayerLoop;
 
 public class brute : enemy
 {
@@ -8,8 +9,8 @@ public class brute : enemy
     // Start is called before the first frame update
     void Start()
     {
-        health = 50;
-        value = 10;
+        health = 1000;
+        value = 1;
         StartCoroutine(moveBrute());
     }
 
@@ -19,6 +20,10 @@ public class brute : enemy
         chkPos(enemyObj);
     }
     public void OnTriggerStay(Collider c)
+    {
+        triggerProc(enemyObj, c);
+    }
+    public void OnTriggerEnter(Collider c)
     {
         triggerProc(enemyObj, c);
     }
@@ -44,11 +49,14 @@ public class brute : enemy
     }
     IEnumerator shoot()
     {
-        eLaser newEl = Instantiate(eLaserObj, enemyObj.transform);
-        newEl.transform.Rotate(90, 0, 0);
-        newEl.transform.localScale = new Vector3(.2f, 25, .2f);
-        newEl.transform.localPosition = new Vector3(0, 0, 26);
-        newEl.name = "enemyLaser";
-        yield return new WaitForSeconds(1);
+        while (enemyObj != null)
+        {
+            eLaser newEl = Instantiate(eLaserObj, enemyObj.transform.position, Quaternion.identity);
+            newEl.transform.Rotate(0, 0, 90);
+            newEl.transform.localScale = new Vector3(1, 3, 1);
+            newEl.name = "enemyLaser";
+            Destroy(newEl.gameObject, 3);
+            yield return new WaitForSeconds(2);
+        }
     }
 }

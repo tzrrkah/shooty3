@@ -9,7 +9,7 @@ public class spinner : enemy
     void Start()
     {
         health = 30;
-        value = 5;
+        value = 1;
         moveSpd = .3f;        
         StartCoroutine(moveSpinner());
     }
@@ -52,6 +52,10 @@ public class spinner : enemy
         }        
     }
     public void OnTriggerStay(Collider c)
+    {
+        triggerProc(enemyObj, c);
+    }
+    public void OnTriggerEnter(Collider c)
     {
         triggerProc(enemyObj, c);
     }

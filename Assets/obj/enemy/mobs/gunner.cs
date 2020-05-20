@@ -9,8 +9,8 @@ public class gunner : enemy
     // Start is called before the first frame update
     void Start()
     {
-        health = 10;
-        value = 10;
+        health = 300;
+        value = 1;
         moveSpd = .07f;
         lastShoot = Time.time;
         shootCd = Random.Range(0f, 2f);
@@ -50,6 +50,10 @@ public class gunner : enemy
         }      
     }
     public void OnTriggerStay(Collider c)
+    {
+        triggerProc(enemyObj, c);
+    }
+    public void OnTriggerEnter(Collider c)
     {
         triggerProc(enemyObj, c);
     }

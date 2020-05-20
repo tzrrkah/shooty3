@@ -7,7 +7,7 @@ public class enemy : MonoBehaviour
     public enemy enemyObj;
     public bullet bulletObj;
     public player playerObj;
-    public int health,value;
+    public float health,value;
     public float lastDamage, damageCd,moveSpd,lastShoot,shootCd;
     public Material eMat, dmgMat;
     // Start is called before the first frame update
@@ -24,17 +24,33 @@ public class enemy : MonoBehaviour
     }
     public void triggerProc(enemy e,Collider c)
     {
-        if (Time.time > lastDamage + damageCd)        {
+        if (Time.time > lastDamage + damageCd)        
+        {
             
-            if (c.name == "playerLaser")
+            switch (c.name)// == )
             {
-                StartCoroutine(damageColor(e));
-//                Debug.Log(e.name);
-                e.health -= c.GetComponent<bullet>().damage;
-                chkDeath(e);
-                lastDamage = Time.time;
-                //damageCd = .1f;
-            }            
+                case "playerBasic":
+                    Destroy(c.gameObject);
+                    StartCoroutine(damageColor(e));
+                    e.health -= c.GetComponent<bullet>().damage;
+                    break;
+                case "playerSpread":
+                    Destroy(c.gameObject);
+                    StartCoroutine(damageColor(e));
+                    e.health -= c.GetComponent<bullet>().damage;
+                    break;
+                case "playerLaser":
+                    StartCoroutine(damageColor(e));
+                    e.health -= c.GetComponent<bullet>().damage;
+                    break;
+                case "playerMissile":
+                    Destroy(c.gameObject);
+                    StartCoroutine(damageColor(e));
+                    e.health -= c.GetComponent<bullet>().damage;
+                    break;
+            }
+            chkDeath(e,false);
+            lastDamage = Time.time;
         }
     }
     IEnumerator damageColor(enemy e)
@@ -43,21 +59,26 @@ public class enemy : MonoBehaviour
         yield return new WaitForSeconds(damageCd);
         e.GetComponent<Renderer>().material = eMat;
     }
-    public void chkDeath(enemy e)
+    public void chkDeath(enemy e,bool offScrn)
     {
         if(e.health <= 0)
         {
-            gameManager.manager.score += e.value;
+            if (offScrn == false)
+            {
+                gameManager.manager.score += e.value;
+                gameManager.manager.sndSrc.PlayOneShot(gameManager.manager.explode, gameManager.manager.soundVol);
+            }
+            gameManager.manager.enemyList.Remove(e);
             Destroy(e.gameObject);
-            gameManager.manager.enemyCount--;
+            gameManager.manager.enemyCount--;            
         }
     }
     public void chkPos(enemy e)
     {
         if (e.transform.position.x < -51)
         {
-            Destroy(e.gameObject);
-            gameManager.manager.enemyCount--;
+            e.health = 0;
+            chkDeath(e,true);
         }
     }
     public void moveLeft(enemy e)

@@ -15,6 +15,7 @@ public class spawner : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        gameManager.manager.enemyList.Clear();
         //Debug.Log(gameManager.manager.level);
         switch (gameManager.manager.level)
         {
@@ -25,27 +26,27 @@ public class spawner : MonoBehaviour
                 break;
             case 2:
                 txtToPlayer.text = "level 2 brutes";
-                StartCoroutine(spawnBrute(gameManager.manager.maxEnemies, 1f));
+                StartCoroutine(spawnBrute(gameManager.manager.maxEnemies, .8f));
                 //gameManager.manager.enemyCount = 50;
                 break;
-            case 3:
-                txtToPlayer.text = "level 3 spinners";
-                StartCoroutine(spawnSpinner(gameManager.manager.maxEnemies, 1));
+            case 5:
+                txtToPlayer.text = "level 5 spinners";
+                StartCoroutine(spawnSpinner(gameManager.manager.maxEnemies, .3f));
                 //gameManager.manager.enemyCount = 50;
                 break;
             case 4:
                 txtToPlayer.text = "level 4 gunner";
-                StartCoroutine(spawnGunner(gameManager.manager.maxEnemies, .5f));
+                StartCoroutine(spawnGunner(gameManager.manager.maxEnemies, .2f));
                 //gameManager.manager.enemyCount = 50;
                 break;
-            case 5:
-                txtToPlayer.text = "level 5 spreader";
-                StartCoroutine(spawnSpreader(gameManager.manager.maxEnemies, .5f));
+            case 3:
+                txtToPlayer.text = "level 3 spreader";
+                StartCoroutine(spawnSpreader(gameManager.manager.maxEnemies, .4f));
                 //gameManager.manager.enemyCount = 50;
                 break;            
             case 6:
                 txtToPlayer.text = "level 6 everything";
-                StartCoroutine(spawnEverything(gameManager.manager.maxEnemies, .2f));
+                StartCoroutine(spawnEverything(gameManager.manager.maxEnemies, .5f));
                 //gameManager.manager.enemyCount = 50;
                 break;
         }
@@ -57,8 +58,10 @@ public class spawner : MonoBehaviour
         txtECount.text = gameManager.manager.enemyCount.ToString();
         if (gameManager.manager.enemyCount < 1)
         {
-            SceneManager.LoadScene("shop");
+//            Debug.Log("aaa"); //todo sound persistent 
+            //gameManager.manager.sndSrc.Stop();            
             gameManager.manager.level++;
+            SceneManager.LoadScene("shop");
         }
     }
     IEnumerator spawnEverything(int spawnNum, float spawnCd)
@@ -96,6 +99,7 @@ public class spawner : MonoBehaviour
             float zVal = Random.Range(-10f, -25f);
             spreader newS = Instantiate(spreaderObj, new Vector3(45, 1.5f, zVal), Quaternion.Euler(0, -90, 0));
             newS.name = "spreader";
+            gameManager.manager.enemyList.Add(newS);
             yield return new WaitForSeconds(spawnCd);
         }
     }
@@ -107,6 +111,7 @@ public class spawner : MonoBehaviour
             float zVal = Random.Range(10f, 25f);
             gunner newG = Instantiate(gunnerObj, new Vector3(45, 1.5f, zVal), Quaternion.Euler(0, -90, 0));
             newG.name = "gunner";
+            gameManager.manager.enemyList.Add(newG);
             yield return new WaitForSeconds(spawnCd);
         }
     }
@@ -118,6 +123,7 @@ public class spawner : MonoBehaviour
             float zVal = Random.Range(-25f, 25f);
             spinner newS=Instantiate(spinnerObj, new Vector3(45, 1.5f, zVal), Quaternion.Euler(0, -90, 0));
             newS.name = "spinner";
+            gameManager.manager.enemyList.Add(newS);
             yield return new WaitForSeconds(spawnCd);
         }
     }
@@ -129,6 +135,7 @@ public class spawner : MonoBehaviour
             float zVal = Random.Range(-25f, 25f);
             brute newB = Instantiate(bruteObj, new Vector3(45, 1.5f, zVal), Quaternion.Euler(0,-90,0));
             newB.name = "brute";
+            gameManager.manager.enemyList.Add(newB);
             yield return new WaitForSeconds(spawnCd);
         }
     }
@@ -140,6 +147,7 @@ public class spawner : MonoBehaviour
             float zVal = Random.Range(-25f, 25f);
             grunt newG = Instantiate(gruntObj, new Vector3(45, 1.5f, zVal), Quaternion.identity);
             newG.name = "grunt";
+            gameManager.manager.enemyList.Add(newG);
             yield return new WaitForSeconds(spawnCd);
         }
         

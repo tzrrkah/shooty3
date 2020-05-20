@@ -7,7 +7,7 @@ public class grunt : enemy
     // Start is called before the first frame update
     void Start()
     {
-        health = 1;
+        health = 100;
         value = 1;
         moveSpd = .1f;
         lastShoot = Time.time;
@@ -25,6 +25,10 @@ public class grunt : enemy
     }
 
     public void OnTriggerStay(Collider c)
+    {
+        triggerProc(enemyObj, c);
+    }
+    public void OnTriggerEnter(Collider c)
     {
         triggerProc(enemyObj, c);
     }
