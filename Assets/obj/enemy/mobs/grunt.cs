@@ -26,6 +26,7 @@ public class grunt : enemy
 
     public void OnTriggerStay(Collider c)
     {
+        Debug.Log("s");
         triggerProc(enemyObj, c);
     }
     public void OnTriggerEnter(Collider c)

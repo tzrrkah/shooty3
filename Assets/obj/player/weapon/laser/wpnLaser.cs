@@ -31,12 +31,24 @@ public class wpnLaser : weapon
     }
     void wpnFire()
     {
-        bltLaser newBl = Instantiate(bltLaserObj, weaponObj.transform);
-        newBl.transform.localPosition = new Vector3(0, 0, 101);
-        Vector3 lsrScale = new Vector3(1+gameManager.manager.laserLevel/2, newBl.transform.localScale.y,1);
+        bltLaser newBl = Instantiate(bltLaserObj, weaponObj.transform.position,Quaternion.identity);
+
+        Vector3 lsrScale = new Vector3(1, 100, 1 + gameManager.manager.laserLevel / 2);
+
         newBl.transform.localScale = lsrScale;
+        newBl.transform.rotation = Quaternion.Euler(0, 0, 90);
         Destroy(newBl.gameObject, 2.7f);
+        StartCoroutine(moveLaser(newBl));
         //gameManager.manager.sndSrc.PlayOneShot(lsrSnd, gameManager.manager.soundVol/6);
         lclAudioSrc.PlayOneShot(lsrSnd, gameManager.manager.soundVol / 6);
+    }
+    IEnumerator moveLaser(bullet b)
+    {
+        while (b != null)
+        {
+            b.transform.position = weaponObj.transform.position + new Vector3(101, 0, 0);
+            yield return new WaitForFixedUpdate();
+        }
+        
     }
 }

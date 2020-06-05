@@ -8,7 +8,7 @@ public class spinner : enemy
     // Start is called before the first frame update
     void Start()
     {
-        health = 30;
+        health = 300;
         value = 1;
         moveSpd = .3f;        
         StartCoroutine(moveSpinner());

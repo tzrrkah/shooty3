@@ -14,7 +14,7 @@ public class enemy : MonoBehaviour
     void Start()
     {
         lastDamage = 0;
-        damageCd = .02f;
+        damageCd = .05f;
     }
 
     // Update is called once per frame
@@ -24,7 +24,12 @@ public class enemy : MonoBehaviour
     }
     public void triggerProc(enemy e,Collider c)
     {
-        if (Time.time > lastDamage + damageCd)        
+        if (Time.time > lastDamage + damageCd &&(
+            c.name== "playerBasic" ||
+            c.name == "playerSpread" ||
+            c.name == "playerLaser" ||
+            c.name == "playerMissile"
+            ))        
         {
             
             switch (c.name)// == )
